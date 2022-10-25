@@ -1,9 +1,10 @@
 <?php
  
 namespace App\Http\Controllers;
- 
+use Illuminate\Http\Request;
 use App\Models\User;
- 
+use Illuminate\Support\Facades\DB; 
+
 class FigurinhaController extends Controller
 {    
     public function show($id)

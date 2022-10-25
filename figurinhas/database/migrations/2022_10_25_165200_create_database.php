@@ -24,7 +24,8 @@ return new class extends Migration
             $table->string('nome');
             $table->string('foto');
             $table->dateTime('data_nasc');
-            $table->string('naturalidade');
+            $table->string('cidade');
+            $table->unsignedBigInteger('numero');
             $table->string('raridade');
         });
 
@@ -41,7 +42,8 @@ return new class extends Migration
             $table->unsignedBigInteger('figurinha_id');
             $table->foreign('figurinha_id')->references('id')->on('figurinhas');
             $table->unsignedBigInteger('pacote_id');
-            $table->foreign('pacote_id')->references('id')->on('pacotes');            
+            $table->foreign('pacote_id')->references('id')->on('pacotes');     
+            $table->boolean('colada');
         });
     }
 
