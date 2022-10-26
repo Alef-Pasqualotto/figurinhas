@@ -7,10 +7,9 @@ use Illuminate\Support\Facades\DB;
 
 class FigurinhaController extends Controller
 {    
-    public function show($id)
-    {
+
         function index(){
-            $figurinhas = DB::table('figurinhas')->SelectRaw('nome, foto, data_nasc, naturalidade, raridade')
+            $figurinhas = DB::table('figurinhas')->SelectRaw('nome, foto, data_nasc, cidade, raridade')
             ->orderBy('nome')
             ->get();
             return view('figurinhas.index', ['figurinhas' => $figurinhas, 'title' => 'Figurinhas']);
@@ -29,7 +28,7 @@ class FigurinhaController extends Controller
             $id = array_shift($data);    
             DB::table('figurinhas')
                 ->where('id',$id)
-                ->update(array_intersect_key($data,['nome'=>1,'foto'=>1,'data_nasc'=>1,'naturalidade'=>1,'raridade'=>1,]));
+                ->update(array_intersect_key($data,['nome'=>1,'foto'=>1,'data_nasc'=>1,'cidade'=>1,'raridade'=>1,]));
      
             return redirect('/cursos');
         }
@@ -41,7 +40,7 @@ class FigurinhaController extends Controller
                     nome,
                     foto,
                     data_nasc,
-                    naturalidade,
+                    cidade,
                     raridade
                     ")
                 ->Where('id',$id)
@@ -57,5 +56,5 @@ class FigurinhaController extends Controller
                 ->delete();
             return redirect('/figurinhas');
         }
-    }
+    
 }
