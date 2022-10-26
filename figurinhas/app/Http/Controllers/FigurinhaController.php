@@ -9,9 +9,12 @@ class FigurinhaController extends Controller
 {    
 
         function index(){
-            $figurinhas = DB::table('figurinhas')->SelectRaw('nome, foto, data_nasc, cidade, raridade')
+            $figurinhas = DB::table('figurinhas')
+            ->SelectRaw('id, nome, foto, data_nasc, cidade, numero, raridade')
             ->orderBy('nome')
             ->get();
+            /* echo '<pre>';
+            var_dump($figurinhas); */
             return view('figurinhas.index', ['figurinhas' => $figurinhas, 'title' => 'Figurinhas']);
         }
 

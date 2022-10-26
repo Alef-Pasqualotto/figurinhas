@@ -1,3 +1,4 @@
+@section('container')
 <table class="table table-striped">
     <thead>
         <tr>
@@ -5,6 +6,7 @@
             <th>Foto</th>
             <th>Data de Nascimento</th>
             <th>Cidade</th>
+            <th>Numero</th>
             <th>Raridade</th>
             <th>Ações</th>
         </tr>
@@ -16,6 +18,7 @@
                 <td>{{$figurinha->foto}}</td>
                 <td>{{$figurinha->data_nasc}}</td>
                 <td>{{$figurinha->cidade}}</td> 
+                <td>{{$figurinha->numero}}</td> 
                 <td>{{$figurinha->raridade}}</td>  
                 <td>
                     <a class="btn btn-warning" href="/figurinhas/{{$figurinha->id}}/edit">Editar</a>
@@ -26,3 +29,4 @@
         @endforeach
     </tbody>
 </table>
+@endsection
