@@ -34,7 +34,7 @@ return new class extends Migration
             $table->unsignedBigInteger('usuario_id');
             $table->foreign('usuario_id')->references('id')->on('usuarios');
             $table->dateTime('data_compra');
-            $table->dateTime('data_abertura');
+            $table->dateTime('data_abertura')->nullable();
         });
 
         Schema::create('figurinhas_pacotes', function (Blueprint $table) {
