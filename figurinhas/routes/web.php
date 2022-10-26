@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FigurinhaController;
+use App\Http\Controllers\PacoteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::get('/figurinhas', [FigurinhaController::class, 'index']);
+Route::get('/pacotes', [PacoteController::class, 'criarPacote']);
