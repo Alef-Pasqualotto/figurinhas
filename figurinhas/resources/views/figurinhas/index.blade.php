@@ -1,4 +1,14 @@
-@section('container')
+<!DOCTYPE html>
+<html lang="pt-b">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ $title }}</title>   
+    
+</head>
+<body>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -10,12 +20,12 @@
             <th>Raridade</th>
             <th>Ações</th>
         </tr>
-    </thead>
+    </thead>    
     <tbody>
         @foreach($figurinhas as $figurinha)
             <tr>
                 <td>{{$figurinha->nome}}</td>
-                <td>{{$figurinha->foto}}</td>
+                <td><img src="{{url('/figurinhasTurma/')}}/{{$figurinha->foto}}" width="45" height="40"></td>
                 <td>{{$figurinha->data_nasc}}</td>
                 <td>{{$figurinha->cidade}}</td> 
                 <td>{{$figurinha->numero}}</td> 
@@ -29,4 +39,5 @@
         @endforeach
     </tbody>
 </table>
-@endsection
+</body>
+</html>

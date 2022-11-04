@@ -20,5 +20,6 @@ Route::get('/', function () {
 });
 
 Route::get('/figurinhas', [FigurinhaController::class, 'index']);
+Route::get('/figurinhas/{id}/destroy', [FigurinhaController::class, 'destroy']);
 Route::get('/pacotes', [PacoteController::class, 'criarPacote']);
 Route::view('/teste', 'teste.index');

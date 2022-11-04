@@ -10,7 +10,7 @@ class FigurinhaController extends Controller
 
         function index(){
             $figurinhas = DB::table('figurinhas')
-            ->SelectRaw('id, nome, foto, data_nasc, cidade, numero, raridade')
+            ->SelectRaw('id, nome, foto, DATE_FORMAT(data_nasc, "%d/%m/%Y") as data_nasc, cidade, numero, raridade')
             ->orderBy('nome')
             ->get();
             /* echo '<pre>';
