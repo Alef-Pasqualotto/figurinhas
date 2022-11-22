@@ -31,9 +31,9 @@ class FigurinhaController extends Controller
             $id = array_shift($data);    
             DB::table('figurinhas')
                 ->where('id',$id)
-                ->update(array_intersect_key($data,['nome'=>1,'foto'=>1,'data_nasc'=>1,'cidade'=>1,'raridade'=>1,]));
+                ->update(array_intersect_key($data,['nome'=>1,'data_nasc'=>1,'cidade'=>1,'raridade'=>1,]));
      
-            return redirect('/cursos');
+            return redirect('/figurinhas');
         }
         
         function show($id){

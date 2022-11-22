@@ -31,7 +31,6 @@
                 <td>
                     <a class="btn btn-warning" href="/figurinhas/{{$figurinha->id}}/edit">Editar</a>
                     <a class="btn btn-info" href="/figurinhas/{{$figurinha->id}}/show">Ver</a>
-                    <a class="btn btn-danger" href="/figurinhas/{{$figurinha->id}}/destroy">Remover</a>
                 </td>
             </tr>
         @endforeach
