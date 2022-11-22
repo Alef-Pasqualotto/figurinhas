@@ -22,7 +22,7 @@ class FigurinhaController extends Controller
 
             $figurinhas = DB::table('figurinhas')->where('id', $id)->first();
      
-            return view('figurinhas.edit', ['figurinhas' => $figurinhas, 'title' => 'Editar figurinhas']);
+            return view('figurinhas.index', ['title' => 'Editar figurinhas']);
         }
         function update(Request $request){
             $data = $request->all();

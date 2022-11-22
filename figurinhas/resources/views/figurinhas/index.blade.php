@@ -3,9 +3,10 @@
 
 <head>
 @include('base.header', ['title' => $title]) 
-    
+
 </head>
 <body>
+    @include('base.navbar') 
 
 <table class="table table-striped">
     <thead>
