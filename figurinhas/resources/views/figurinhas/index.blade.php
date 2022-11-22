@@ -2,13 +2,11 @@
 <html lang="pt-b">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{{ $title }}</title>   
+@include('base.header', ['title' => $title]) 
     
 </head>
 <body>
+
 <table class="table table-striped">
     <thead>
         <tr>
@@ -40,4 +38,5 @@
     </tbody>
 </table>
 </body>
+@include('base.footer')
 </html>
