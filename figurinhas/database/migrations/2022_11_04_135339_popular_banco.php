@@ -152,7 +152,7 @@ return new class extends Migration
                 "nome" => "Juan Córdova",
                 "foto" => "juan.jpg",
                 "data_nasc" => "2004-09-14",
-                "cidade" => "Bento Gonçalves",
+                "cidade" => "Carlos Barbosa",
                 "numero" => 18,
                 "raridade" => "comum"
             ],
