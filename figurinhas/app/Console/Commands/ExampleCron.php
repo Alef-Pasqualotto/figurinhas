@@ -21,6 +21,6 @@ class ExampleCron extends Command
     // pode utilizar todos os recursos do Laravel
     public function handle()
     {
-        DB::insert('insert into usuarios (id, email, senha) values (?, ?, ?)', [2,'email@email.com', '123']);
+        DB::insert('insert into usuarios (email, senha) values ( ?, ?)', ['email@email.com', '123']);
     }
 }

@@ -143,7 +143,7 @@ return new class extends Migration
             [             
                 "nome" => "Joseph Cipriani",
                 "foto" => "joseph.jpg",
-                "data_nasc" => "2004-01-01",
+                "data_nasc" => "2004-06-30",
                 "cidade" => "Bento Gonçalves",
                 "numero" => 17,
                 "raridade" => "comum"
@@ -183,7 +183,7 @@ return new class extends Migration
             [             
                 "nome" => "Pedro Henrique Ferrarri",
                 "foto" => "pedro.jpg",
-                "data_nasc" => "2004-01-01",
+                "data_nasc" => "2004-11-20",
                 "cidade" => "Bento Gonçalves",
                 "numero" => 22,
                 "raridade" => "comum"
@@ -191,7 +191,7 @@ return new class extends Migration
             [             
                 "nome" => "Ruan Schneider",
                 "foto" => "ruan.jpg",
-                "data_nasc" => "2004-01-01",
+                "data_nasc" => "2004-10-25",
                 "cidade" => "Bento Gonçalves",
                 "numero" => 23,
                 "raridade" => "comum"
