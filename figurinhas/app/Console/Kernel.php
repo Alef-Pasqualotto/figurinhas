@@ -8,6 +8,9 @@ use Illuminate\Support\Facades\DB;
  
 class Kernel extends ConsoleKernel
 {
+
+    protected $commands = [Commands\ExampleCron::class];
+
     /**
      * Define the application's command schedule.
      *
@@ -16,9 +19,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        $schedule->call(function () {
-            DB::table('usuarios')->delete();
-        })->everyMinute();
+       $schedule->command('example:cron')->everyMinute();
     }
 
     /**
