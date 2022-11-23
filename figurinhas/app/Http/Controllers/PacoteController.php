@@ -11,11 +11,12 @@ class PacoteController extends Controller
     function criarPacote(Request $request)
     {
 
-        //$data = $request->all();
-        // unset($data['_token']);
+        $data = $request->all();
+        unset($data['_token']);
 
-        //$id = $data['id'];
-        $id = 1;
+        $id = $data['id'];
+        echo $id;
+        //$id = 1;
         DB::table('pacotes')->insert([
             'usuario_id' => $id,
             'data_compra' => NOW()

@@ -13,3 +13,6 @@ import './bootstrap';
  */
 
 import './components/Example';
+
+mostraConsole = () => console.log('outo')
+botaoCompra = document.getElementById('botaoCompra')
