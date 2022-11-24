@@ -30,9 +30,20 @@ class PacoteController extends Controller
                 'colada' => 0
             ]);
         }
-
-        
-            
-        
+    }
+    function testeCron()
+    {
+        $usuarios = DB::select('SELECT id FROM usuarios');
+        foreach ($usuarios as $usuario) {
+            $figurinhas_aleatorizadas = DB::select('SELECT id FROM figurinhas ORDER BY RAND() LIMIT 5');
+            $id_pacote_inserido = DB::table('pacotes')->insertGetId(['usuario_id' => $usuario->id, 'data_compra' => now()]);
+            foreach ($figurinhas_aleatorizadas as $figurinha) {
+                DB::table('figurinhas_pacotes')->insert([
+                    'pacote_id' => $id_pacote_inserido,
+                    'figurinha_id' => $figurinha->id,
+                    'colada' => 0
+                ]);
+            }
+        }
     }
 }
