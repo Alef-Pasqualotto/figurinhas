@@ -22,7 +22,7 @@ class FigurinhaController extends Controller
 
             $figurinhas = DB::table('figurinhas')->where('id', $id)->first();
      
-            return view('figurinhas.index', ['title' => 'Editar figurinhas']);
+            return view('figurinhas.edit', ['title' => 'Editar figurinhas', 'figurinhas' => $figurinhas]);
         }
         function update(Request $request){
             $data = $request->all();
@@ -37,7 +37,7 @@ class FigurinhaController extends Controller
         }
         
         function show($id){
-            $figurinhas = DB::table('figurinhas')
+            $figurinha = DB::table('figurinhas')
                 ->selectRaw("
                     id,
                     nome,
@@ -49,7 +49,7 @@ class FigurinhaController extends Controller
                 ->Where('id',$id)
                 ->first();
     
-            return view('figurinhas.show', ['figurinhas' => $figurinhas, 'title' => 'Figurinhas']);
+            return view('figurinhas.show', ['figurinhas' => $figurinha, 'title' => 'Figurinhas']);
         }
  
         function destroy($id){
