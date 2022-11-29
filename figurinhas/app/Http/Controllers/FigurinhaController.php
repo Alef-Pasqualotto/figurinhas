@@ -44,6 +44,7 @@ class FigurinhaController extends Controller
                     foto,
                     data_nasc,
                     cidade,
+                    numero,
                     raridade
                     ")
                 ->Where('id',$id)
