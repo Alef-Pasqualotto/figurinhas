@@ -4,7 +4,7 @@ import Main from './components/Main';
 import Footer from './components/Footer';
 import albumItems from './data/album';
 import socialLinks from './data/socialLinks';
-import './App.css';
+import './styles.css';
 
 export default class Example extends React.Component {
     constructor(props) {
