@@ -60,5 +60,24 @@ class FigurinhaController extends Controller
                 ->delete();
             return redirect('/figurinhas');
         }
+
+        function retornaJson(){
+            $figurinhas = DB::table('figurinhas')
+            ->SelectRaw('id, nome, foto, cidade, numero, raridade')
+            ->orderBy('nome')
+            ->get();
+            echo json_encode($figurinhas);
+        }
+
+        function retornaJsonUsuario($id){
+            $figurinhas = DB::table('figurinhas_pacotes')
+            ->join('pacotes', 'pacotes.id', '=', 'figurinhas_pacotes.pacote_id')    
+            ->join('figurinhas', 'figurinhas.id', '=', 'figurinhas_pacotes.figurinha_id')
+            ->selectRaw('figurinhas_pacotes.colada, figurinhas.*, figurinhas_pacotes.id AS id_unico')
+            ->where('usuario_id', $id)            
+            ->orderBy('nome')
+            ->get();
+            echo json_encode($figurinhas);
+        }
     
 }

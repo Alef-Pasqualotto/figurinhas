@@ -22,9 +22,11 @@ Route::get('/', function () {
 Route::get('/figurinhas', [FigurinhaController::class, 'index']);
 Route::get('/figurinhas/{id}/destroy', [FigurinhaController::class, 'destroy']);
 //Route::get('/pacotes', [PacoteController::class, 'criarPacote']);
-Route::post('/compraPacotes', [PacoteController::class, 'criarPacote']);
+Route::get('/compraPacotes/{id}', [PacoteController::class, 'criarPacote']);
 Route::get('/figurinhas/{id}/edit', [FigurinhaController::class, 'edit']);
 Route::get('/figurinhas/{id}/show', [FigurinhaController::class, 'show']);
 Route::get('/figurinhas/update', [FigurinhaController::class, 'update']);
 Route::get('/pacotes', [PacoteController::class, 'criarPacote']);
+Route::get('/jsonfigurinhas', [FigurinhaController::class, 'retornaJson']);
+Route::get('/figurinhausuario/{id}', [FigurinhaController::class, 'retornaJsonUsuario']);
 Route::view('/teste', 'teste.index');

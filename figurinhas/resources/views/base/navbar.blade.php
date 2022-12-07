@@ -11,7 +11,7 @@
         <li class="nav-item">
           <a class="nav-link" href="/eleitores/">Album</a>
         </li>
-        <button type="button" class="btn btn-outline-info">Comprar pacote</button>
+        <a href="{{url('/compraPacotes/1')}}"><button type="button" class="btn btn-outline-info">Comprar pacote</button></a>
       </ul>
     </div>
   </div>

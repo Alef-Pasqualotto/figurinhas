@@ -8,15 +8,8 @@ use App\Models\User;
 
 class PacoteController extends Controller
 {
-    function criarPacote(Request $request)
+    function criarPacote($id)
     {
-
-        $data = $request->all();
-        unset($data['_token']);
-
-        $id = $data['id'];
-        echo $id;
-        //$id = 1;
         DB::table('pacotes')->insert([
             'usuario_id' => $id,
             'data_compra' => NOW()
@@ -30,6 +23,7 @@ class PacoteController extends Controller
                 'colada' => 0
             ]);
         }
+        return redirect('/figurinhas');
     }
     function testeCron()
     {
