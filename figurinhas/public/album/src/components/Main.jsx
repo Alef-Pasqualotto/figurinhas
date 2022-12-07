@@ -6,9 +6,6 @@ const Main = ({ album }) => {
     return (
         <main role="main">
             <Album album={album} />
-            <div className="App">
-                <App />
-            </div>
         </main>
     );
 };

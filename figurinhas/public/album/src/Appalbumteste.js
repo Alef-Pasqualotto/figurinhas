@@ -1,10 +1,8 @@
 import React from 'react';
-import Header from './components/Header';
 import Main from './components/Main';
-import Footer from './components/Footer';
 import albumItems from './data/album';
 import socialLinks from './data/socialLinks';
-import './styles.css';
+import './App.css';
 
 export default class Example extends React.Component {
     constructor(props) {
@@ -26,13 +24,7 @@ export default class Example extends React.Component {
     render() {
         return (
             <div>
-                <Header
-                    collapsed={this.state.collapsed}
-                    toggleNavbar={this.toggleNavbar}
-                    socialLinks={this.state.socialLinks}
-                />
                 <Main album={this.state.album} />
-                <Footer />
             </div>
         );
     }
