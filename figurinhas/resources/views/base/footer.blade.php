@@ -1,1 +1,1 @@
-<script src="js/app.js"></script>
+<script src="../../../public/album/src/index.js"></script>
