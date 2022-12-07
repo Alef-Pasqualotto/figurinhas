@@ -81,3 +81,9 @@ class FigurinhaController extends Controller
         }
     
 }
+
+// SELECT (COUNT(colada) / COUNT(DISTINCT numero) * 100) AS porcentagem
+// FROM figurinhas_pacotes
+// INNER JOIN pacotes ON pacotes.id = figurinhas_pacotes.pacote_id
+// INNER JOIN figurinhas ON figurinhas.id = figurinhas_pacotes.figurinha_id
+// WHERE usuario_id = 1 AND colada = 1;
