@@ -24,7 +24,6 @@ export default class Example extends React.Component {
     render() {
         return (
             <div>
-
                 <Main album={this.state.album} />
             </div>
         );
