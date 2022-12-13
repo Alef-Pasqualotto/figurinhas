@@ -70,6 +70,17 @@ class FigurinhaController extends Controller
         }
         
         function retornaJsonUsuario($id){            
+            $figurinhas = DB::table('figurinhas_pacotes')
+            ->join('figurinhas', 'figurinhas.id', 'figurinhas_pacotes.figurinha_id')
+            ->join('pacotes', 'pacotes.id', 'figurinhas_pacotes.pacote_id')
+            ->selectRaw('figurinhas_pacotes.id as id_unico, numero as pos, nome as name')
+            ->where([['usuario_id', '=', $id],
+                        ['colada', '!=', '1']])
+            ->get();
+            echo json_encode($figurinhas);
+        }
+
+        function retornaAlbumUsuario($id){
             $figurinhas = DB::table('figurinhas_pacotes')         
             ->rightJoin('figurinhas', 'figurinhas.id', '=', 'figurinhas_pacotes.figurinha_id')
             ->join('pacotes', 'pacotes.id', 'figurinhas_pacotes.pacote_id')

@@ -28,5 +28,6 @@ Route::get('/figurinhas/{id}/show', [FigurinhaController::class, 'show']);
 Route::get('/figurinhas/update', [FigurinhaController::class, 'update']);
 Route::get('/pacotes', [PacoteController::class, 'criarPacote']);
 Route::get('/jsonfigurinhas', [FigurinhaController::class, 'retornaJson']);
-Route::get('/figurinhausuario/{id}', [FigurinhaController::class, 'retornaJsonUsuario']);
+Route::get('/albumUsuario/{id}', [FigurinhaController::class, 'retornaAlbumUsuario']);
+Route::get('/figurinhasUsuario/{id}', [FigurinhaController::class, 'retornaJsonUsuario']);
 Route::view('/teste', 'teste.index');
