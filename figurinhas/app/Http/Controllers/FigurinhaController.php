@@ -68,16 +68,32 @@ class FigurinhaController extends Controller
             ->get();
             echo json_encode($figurinhas);
         }
-
-        function retornaJsonUsuario($id){
-            $figurinhas = DB::table('figurinhas_pacotes')
-            ->join('pacotes', 'pacotes.id', '=', 'figurinhas_pacotes.pacote_id')    
-            ->join('figurinhas', 'figurinhas.id', '=', 'figurinhas_pacotes.figurinha_id')
-            ->selectRaw('figurinhas_pacotes.colada, figurinhas.*, figurinhas_pacotes.id AS id_unico')
-            ->where('usuario_id', $id)            
-            ->orderBy('nome')
+        
+        function retornaJsonUsuario($id){            
+            $figurinhas = DB::table('figurinhas_pacotes')         
+            ->rightJoin('figurinhas', 'figurinhas.id', '=', 'figurinhas_pacotes.figurinha_id')
+            ->join('pacotes', 'pacotes.id', 'figurinhas_pacotes.pacote_id')
+            ->selectRaw('nome, numero as posicao, figurinhas.id, sum(colada) as esta_colada, CASE WHEN (sum(colada) = NULL OR sum(colada) = 0) THEN null ELSE figurinhas_pacotes.id END as id_unico')
+            ->where('usuario_id', $id)                        
+            ->groupByRaw('posicao, nome, figurinhas.id, figurinhas_pacotes.id')
             ->get();
-            echo json_encode($figurinhas);
+            $linhasJson = [];
+            
+            foreach($figurinhas as $figurinha){
+                $linha = [];
+                $linha['id'] = $figurinha->posicao;
+                $linha['pos'] = $figurinha->posicao;
+                if($figurinha->esta_colada == 'null' || $figurinha->esta_colada == '0') {
+                    $linha['f'] = null;
+                } else{
+                    $linha['f'] = ['id' => $figurinha->id_unico,
+                                    'pos' => $figurinha->posicao,
+                                    'name' => $figurinha->nome];
+                }
+                array_push($linhasJson, $linha);
+            }
+            
+            echo json_encode($linhasJson);
         }
     
 }
