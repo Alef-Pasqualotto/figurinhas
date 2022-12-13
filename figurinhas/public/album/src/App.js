@@ -4,7 +4,6 @@ import HTMLFlipBook from "react-pageflip";
 import { Album } from "./Album";
 import { DndProvider } from "react-dnd";
 import {HTML5Backend} from 'react-dnd-html5-backend';
-import { MinhasFigurinhas } from "./MinhasFigurinhas";
 
 
 const Page = React.forwardRef((props, ref) => {
@@ -24,17 +23,17 @@ function MyBook(props) {
   ]);
 
   const colaFigurinha = (id) =>
-    setFigurinhas((p) => p.filter((f) => f.id !== id));
+    setFigurinhas((p) => p.filter((f) => f.id !== id)); 
 
 
   return (
     <HTMLFlipBook width={600} height={600} showCover={true} >
       <Page number="1"><h1>Olá</h1></Page>
-      <Page number="2"><Album colaFigurinha={colaFigurinha} /></Page>
-      <Page number="3"><Album colaFigurinha={colaFigurinha} /></Page>
-      <Page number="4"><Album colaFigurinha={colaFigurinha} /></Page>
-      <Page number="5"><Album colaFigurinha={colaFigurinha} /></Page>
-      <Page number="6"><Album colaFigurinha={colaFigurinha} /></Page>
+      <Page number="2"><Album colaFigurinha={colaFigurinha} positionMin = {1} positionMax={6}/></Page>
+      <Page number="3"><Album colaFigurinha={colaFigurinha} positionMin = {7} positionMax={12}/></Page>
+      <Page number="4"><Album colaFigurinha={colaFigurinha} positionMin = {13} positionMax={18}/></Page>
+      <Page number="5"><Album colaFigurinha={colaFigurinha} positionMin = {19} positionMax={24}/></Page>
+      <Page number="6"><Album colaFigurinha={colaFigurinha} positionMin = {25} positionMax={30}/></Page>
     </HTMLFlipBook>
   );
 }

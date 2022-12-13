@@ -1,7 +1,5 @@
 import React from 'react';
 import {
-    Button,
-    ButtonGroup,
     Card,
     CardImg,
     CardText,
@@ -23,10 +21,11 @@ const Album = ({ album }) => {
                             <Col md="2" key={key}>
                                 <Card className="mb-5 box-shadow" style={{width: "140px", height: "180px"}}>
                                     <CardImg
+                                        height={"100px"}
                                         src={item.src}
                                         alt={item.altText}
                                     />
-                                    <CardBody className='fundo'>
+                                    <CardBody className='fundo' >
                                         <CardText>{item.description}</CardText>
                                         <div className="d-flex justify-content-between align-items-center">
                                             <small className="text-muted">

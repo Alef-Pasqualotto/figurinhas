@@ -81,20 +81,14 @@ class FigurinhaController extends Controller
         }
 
         function retornaAlbumUsuario($id){
-            $figurinhas = DB::table('figurinhas_pacotes')         
-            ->rightJoin('figurinhas', 'figurinhas.id', '=', 'figurinhas_pacotes.figurinha_id')
-            ->join('pacotes', 'pacotes.id', 'figurinhas_pacotes.pacote_id')
-            ->selectRaw('nome, numero as posicao, figurinhas.id, sum(colada) as esta_colada, CASE WHEN (sum(colada) = NULL OR sum(colada) = 0) THEN null ELSE figurinhas_pacotes.id END as id_unico')
-            ->where('usuario_id', $id)                        
-            ->groupByRaw('posicao, nome, figurinhas.id, figurinhas_pacotes.id')
-            ->get();
+            $figurinhas = DB::select( DB::raw("select f.id, fp.id as id_unico, f.nome, f.numero as posicao, fp.id, fp.colada from figurinhas f LEFT join figurinhas_pacotes fp ON (f.id = fp.figurinha_id and fp.colada = 1)") );
             $linhasJson = [];
             
             foreach($figurinhas as $figurinha){
                 $linha = [];
                 $linha['id'] = $figurinha->posicao;
                 $linha['pos'] = $figurinha->posicao;
-                if($figurinha->esta_colada == 'null' || $figurinha->esta_colada == '0') {
+                if($figurinha->colada == null || $figurinha->colada == '0') {
                     $linha['f'] = null;
                 } else{
                     $linha['f'] = ['id' => $figurinha->id_unico,

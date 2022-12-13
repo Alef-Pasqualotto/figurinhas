@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Local } from "./Local";
 
-export const Album = ({ colaFigurinha }) => {
+export const Album = ({ colaFigurinha, positionMin, positionMax }) => {
   const [album, setAlbum] = useState([
     {
       "id": 1,
@@ -808,6 +808,10 @@ export const Album = ({ colaFigurinha }) => {
       "f": null
     }
   ]);
+
+  const posicaoFigurinha = (positionMin, positionMax) =>
+    album.filter((pos) => pos.pos >= positionMin && pos.pos <= positionMax)
+
   return (
     <div
       style={{
@@ -820,12 +824,13 @@ export const Album = ({ colaFigurinha }) => {
         gridRowEnd: "3"
       }}
     >
-      {(album.filter((f) => f.pos < 6)).map((local) => (
+      {album.filter((pos) => pos.pos >= positionMin && pos.pos <= positionMax).map((local) => (
         <Local
           key={local.id}
           local={local}
           setAlbum={setAlbum}
           colaFigurinha={colaFigurinha}
+          posicao={posicaoFigurinha}
         />
       ))}
     </div>
