@@ -16,15 +16,13 @@ const Album = ({ album }) => {
     return (
         <div className="album py-5 bg-light">
             <App/>
-            <Container>
+            <Container mt="3">
                 <Row>
                     {album.map((item, key) => {
                         return (
-                            <Col md="4" key={key}>
-                                <Card className="mb-5 box-shadow">
+                            <Col md="2" key={key}>
+                                <Card className="mb-5 box-shadow" style={{width: "140px", height: "180px"}}>
                                     <CardImg
-                                        top
-                                        width="100%"
                                         src={item.src}
                                         alt={item.altText}
                                     />
