@@ -1,6 +1,5 @@
 import React from 'react';
 import Album from './Album';
-import App from '../App';
 
 const Main = ({ album }) => {
     return (
