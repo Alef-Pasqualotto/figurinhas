@@ -72,8 +72,8 @@ class FigurinhaController extends Controller
         function retornaJsonUsuario($id){            
             $figurinhas = DB::table('figurinhas_pacotes')
             ->join('figurinhas', 'figurinhas.id', 'figurinhas_pacotes.figurinha_id')
-            ->join('pacotes', 'pacotes.id', 'figurinhas_pacotes.pacote_id')
-            ->selectRaw('figurinhas_pacotes.id as id_unico, numero as pos, nome as name')
+            ->join('pacotes', 'pacotes.id', 'figurinhas_pacotes.pacote_id',)
+            ->selectRaw('figurinhas_pacotes.id as id_unico, numero as pos, nome as name, concat("http://127.0.0.1:8000/figurinhasTurma/", foto) as src' )
             ->where([['usuario_id', '=', $id],
                         ['colada', '!=', '1']])
             ->get();
